@@ -82,8 +82,8 @@
     </div>
     <script>
         var api_url = "http://localhost:8080/jw/api/form/invoice";
-        var api_id = "API-7644330e-17d4-4884-b7cc-393d0e734dc8";
-        var api_key = "d4181787be57499d85c097f71fa25a77";
+        var api_id = "API-e0e58c76-1a05-45fd-bc61-1464ec93c59c";
+        var api_key = "94389af6edfe4a7ab8aa9e0a40590fa1";
         var invoice;
 		var currentUsername = '';
         $(document).ready(function () {
@@ -123,8 +123,7 @@
         function UpdateInvoiceStatus(recordId) {
             var obj = {
                 "id": recordId,
-				"generateInvoiceUsername":currentUsername,
-                "invoiceStatus": "تم الدفع"
+                "InvoiceStatus": "Paid"
             };
             $.ajax({
                 async: false,
