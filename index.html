@@ -115,7 +115,7 @@
             $("body").removeClass("printing");
             //Clear up the div.
             $("#print-me").empty();
-	    UpdateInvoiceStatus(RecordID);			
+	       UpdateInvoiceStatus(RecordID);			
         });
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -125,6 +125,7 @@
                 "id": recordId,
                 "InvoiceStatus": "Paid"
             };
+			 console.log(JSON.stringify(obj));
             $.ajax({
                 async: false,
                 url: api_url,
