@@ -105,17 +105,17 @@
             var Month = params.get('Month');
             $("#Month").text(Month);	 
             	
-			$(".printCounterArea").show();     
-			$("#printArea").clone().appendTo("#print-me");			
+	     $(".printCounterArea").show();     
+	    $("#printArea").clone().appendTo("#print-me");			
              //Apply some styles to hide everything else while printing.
             $("body").addClass("printing");
             //Print the window.
-            //window.print();
+            window.print();
             //Restore the styles.
-            //$("body").removeClass("printing");
+            $("body").removeClass("printing");
             //Clear up the div.
-            //$("#print-me").empty();
-			//UpdateInvoiceStatus(recordId);			
+            $("#print-me").empty();
+	    //UpdateInvoiceStatus(recordId);			
         });
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
