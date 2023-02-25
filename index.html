@@ -57,10 +57,6 @@
                     <div class="col-1">التشريجة:</div>
                     <div class="col-5" align="right"><span id="SubscriptionName" style="margin-right:20px;">5</span></div>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-1">الرقم:</div>
-                    <div class="col-5" align="right"><span id="InvoiceNumber" style="margin-right:15px;">123456</span></div>
-                </div>
 				  <div class="row justify-content-end">
                     <div class="col-1">التاريخ:</div>
                     <div class="col-5" align="right"><span id="InvoiceDate" style="margin-right:15px;">123456</span></div>
@@ -69,14 +65,14 @@
         </div>
         <hr style="border: 1px solid !important;" />
         <div class="row">
-            <div class="col-5">
-                <div class="row justify-content-start">
-                    <div class="col-7"> <p class="float-right"> وصلني من السيد (ة): </p></div>
-                    <div class="col-5"> <span class="float-right inputDesign" style="width:250px;" id="SubscriberNameAR">ذو الفقار حيدر</span></div>
+            <div class="col-6">
+                <div class="row justify-content-start" style="margin-top:25px;">
+                    <div class="col-5"> <p class="float-right"> وصلني من السيد (ة): </p></div>
+                    <div class="col-7"> <span class="float-right inputDesign" style="width:260px;" id="SubscriberNameAR">test</span></div>
                 </div>
-                <div class="row" style="margin-top:40px;">
-                    <div class="col-5"> <p class="float-right"> مبلغ وقدره:</p></div>
-                    <div class="col-7"> <span class="float-right" id="InvoiceValue"></span><span class="float-right">ليرة لبنانية</span> </div>
+                <div class="row">
+                    <div class="col-4"> <p class="float-right"> مبلغ وقدره:</p></div>
+                    <div class="col-8"> <span class="float-right" id="InvoiceValue"></span><span class="float-right">test</span> </div>
                 </div>
                 <div class="row">
                     <div class="col-5"> <p class="float-right">وذلك عن شهر:</p></div>
@@ -84,17 +80,17 @@
                 </div>
             </div>
 			       <div class="col-5">
-                <div class="row" style="margin-top:40px;">
-                    <div class="col-7"> <p class="float-right"> للصيانة  76/928838 </p></div>
-                    <div class="col-5"> <span class="float-right" ></span></div>
+                <div class="row" style="margin-top:20px;">
+				   <div class="col-2"> </div>
+                    <div class="col-10"> <p class="float-right"> للصيانة  76/928838 </p></div>
                 </div>
 				 <div class="row">
-                    <div class="col-7"> <p class="float-right"> للشكاوى 70/821385 -- 70/976340</p></div>
-                    <div class="col-5"> <span class="float-right" ></span></div>
+				  <div class="col-2"> </div>
+                    <div class="col-10"> <p class="float-right"> للشكاوى 70/821385 -- 70/976340</p></div>
                 </div>
 				 <div class="row">
-                    <div class="col-7"> <p class="float-right"> لن يتم تشريج أي حساب قبل الدفع </p></div>
-                    <div class="col-5"> <span class="float-right" ></span></div>
+				    <div class="col-2"> </div>
+                    <div class="col-10"> <p class="float-right"> لن يتم تشريج أي حساب قبل الدفع </p></div>
                 </div>
             </div>
     </div>
@@ -111,17 +107,20 @@
             const params = new URLSearchParams(window.location.search);
 			var RecordID = params.get('RecordID');
             var SubscriberNameAR = params.get('SubscriberNameAR');
+			SubscriberNameAR="رفاعي";
             $("#SubscriberNameAR").text(SubscriberNameAR);                         
             var SubscriptionName = params.get('SubscriptionName');
+			SubscriptionName="6m";
             $("#SubscriptionName").text(SubscriptionName);
 			var InvoiceValue=params.get('InvoiceValue');
+			InvoiceValue="2100000ليرة لبنانية";
             $("#InvoiceValue").text(InvoiceValue);
-			var InvoiceNumber = params.get('InvoiceNumber');
-            $("#InvoiceNumber").text(InvoiceNumber);
 			var Year = params.get('Year');
-            $("#Year").text("-" + Year);
+			Year="2023";
+            $("#Year").text("- " + Year);
             var Month = params.get('Month');
-            $("#Month").text(Month);	 
+			Month="02";	
+            $("#Month").text(Month);					
             var d = new Date();
 	        var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
 			$("#InvoiceDate").text(strDate);
