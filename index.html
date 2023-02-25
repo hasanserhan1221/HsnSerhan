@@ -67,15 +67,15 @@
         <div class="row">
             <div class="col-6">
                 <div class="row justify-content-start" style="margin-top:25px;">
-                    <div class="col-5"> <p class="float-right"> وصلني من السيد (ة): </p></div>
-                    <div class="col-7"> <span class="float-right inputDesign" style="width:260px;" id="SubscriberNameAR">test</span></div>
+                    <div class="col-4"> <p class="float-right"> وصلني من السيد (ة): </p></div>
+                    <div class="col-8"> <span class="float-right inputDesign" style="width:260px;" id="SubscriberNameAR">test</span></div>
                 </div>
                 <div class="row">
                     <div class="col-4"> <p class="float-right"> مبلغ وقدره:</p></div>
                     <div class="col-8"> <span class="float-right" id="InvoiceValue"></span><span class="float-right currency"></span> </div>
                 </div>
                 <div class="row">
-                    <div class="col-5"> <p class="float-right">وذلك عن شهر:</p></div>
+                    <div class="col-4"> <p class="float-right">وذلك عن شهر:</p></div>
                     <div class="col-4"> <span id="Month" class="float-right">1-</span> <span id="Year" class="float-right">2022</span></div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
             var SubscriptionName = params.get('SubscriptionName');
             $("#SubscriptionName").text(SubscriptionName);
 			var InvoiceValue=params.get('InvoiceValue');
-            $("#InvoiceValue").text(InvoiceValue);
+            $("#InvoiceValue").text(numberWithCommas(InvoiceValue));
 			var Year = params.get('Year');
             $("#Year").text("- " + Year);
             var Month = params.get('Month');
@@ -129,7 +129,7 @@
             $("body").removeClass("printing");
             //Clear up the div.
             $("#print-me").empty();
-	       //UpdateInvoiceStatus(RecordID);			
+	    UpdateInvoiceStatus(RecordID);			
         });
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -139,7 +139,6 @@
                 "id": recordId,
                 "InvoiceStatus": "Paid"
             };
-			 console.log(JSON.stringify(obj));
             $.ajax({
                 async: false,
                 url: api_url,
