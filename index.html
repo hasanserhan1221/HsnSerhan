@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>فاتورة اشتراك</title>
@@ -48,7 +48,7 @@
                     <h5>إشتراك MSNET</h5>
                 </div>
                 <div class="row">
-                    <p>03/552450</p>
+                    <p>76/928838</p>
                 </div>
             </div>
 			<div class="col-1"></div>
@@ -60,6 +60,10 @@
                 <div class="row justify-content-end">
                     <div class="col-1">الرقم:</div>
                     <div class="col-5" align="right"><span id="InvoiceNumber" style="margin-right:15px;">123456</span></div>
+                </div>
+				  <div class="row justify-content-end">
+                    <div class="col-1">التاريخ:</div>
+                    <div class="col-5" align="right"><span id="InvoiceDate" style="margin-right:15px;">123456</span></div>
                 </div>
             </div>
         </div>
@@ -77,6 +81,20 @@
                 <div class="row">
                     <div class="col-5"> <p class="float-right">وذلك عن شهر:</p></div>
                     <div class="col-4"> <span id="Month" class="float-right">1-</span> <span id="Year" class="float-right">2022</span></div>
+                </div>
+            </div>
+			       <div class="col-5">
+                <div class="row" style="margin-top:40px;">
+                    <div class="col-7"> <p class="float-right"> للصيانة  76/928838 </p></div>
+                    <div class="col-5"> <span class="float-right" ></span></div>
+                </div>
+				 <div class="row">
+                    <div class="col-7"> <p class="float-right"> للشكاوى 70/821385 -- 70/976340</p></div>
+                    <div class="col-5"> <span class="float-right" ></span></div>
+                </div>
+				 <div class="row">
+                    <div class="col-7"> <p class="float-right"> لن يتم تشريج أي حساب قبل الدفع </p></div>
+                    <div class="col-5"> <span class="float-right" ></span></div>
                 </div>
             </div>
     </div>
@@ -104,9 +122,11 @@
             $("#Year").text("-" + Year);
             var Month = params.get('Month');
             $("#Month").text(Month);	 
-            	
-	     $(".printCounterArea").show();     
-	    $("#printArea").clone().appendTo("#print-me");			
+            var d = new Date();
+	        var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+			$("#InvoiceDate").text(strDate);
+	        $(".printCounterArea").show();     
+	        $("#printArea").clone().appendTo("#print-me");			
              //Apply some styles to hide everything else while printing.
             $("body").addClass("printing");
             //Print the window.
@@ -115,7 +135,7 @@
             $("body").removeClass("printing");
             //Clear up the div.
             $("#print-me").empty();
-	       UpdateInvoiceStatus(RecordID);			
+	       //UpdateInvoiceStatus(RecordID);			
         });
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
